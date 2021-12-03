@@ -99,7 +99,7 @@ Adapt the `replicas` parameter to your cluster size. With a single node `minikub
 
 
 ```bash
-helm install meter --set replicas=1 dandydev/redis-ha
+helm install meter --set replicas=1 --set podSecurityPolicy.create=true dandydev/redis-ha
 ```
 
     NAME: meter
@@ -152,7 +152,7 @@ kubectl get all
 
 
 ```bash
-helm install db --set replicas=1 dandydev/redis-ha
+helm install db --set replicas=1 --set podSecurityPolicy.create=true dandydev/redis-ha
 ```
 
     NAME: db
@@ -426,7 +426,7 @@ pwd
 
 
 ```bash
-helm install mykiebitz charts/kiebitz
+helm install mykiebitz --set=podSecurityContext.runAsUser=1000 charts/kiebitz
 ```
 
     NAME: mykiebitz

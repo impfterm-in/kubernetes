@@ -17,8 +17,9 @@ metrics:
   bind_address: "localhost:9091"
 storage:
   settings_ttl_days: 60
+  keys: [ ]
   rpc:
-    bind_address: localhost:11111
+    bind_address: 0.0.0.0:11111
     cors:
       allowed_hosts: [ "http://localhost:8080" ]
       allowed_headers: [ "*" ]
@@ -40,7 +41,7 @@ appointments:
   user_codes_enabled: false
   keys: [ ]
   rpc:
-    bind_address: localhost:22222
+    bind_address: 0.0.0.0:22222
     cors:
       allowed_hosts: [ "http://localhost:8080" ]
       allowed_headers: [ "*" ]
