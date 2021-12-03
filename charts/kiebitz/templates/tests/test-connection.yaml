@@ -11,5 +11,9 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "kiebitz.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "kiebitz.fullname" . }}:{{ .Values.storageService.port }}']
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "kiebitz.fullname" . }}:{{ .Values.appointmentsService.port }}']
   restartPolicy: Never

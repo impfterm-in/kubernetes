@@ -1,0 +1,14 @@
+{{- if and .Values.ingress.enabled .Values.ingress.certIssuerName -}}
+{{- $fullName := include "kiebitz.fullname" . -}}
+{{- $domainName := .Values.ingress.domain -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ $fullName }}-appointments-cert
+spec:
+  secretName: {{ $fullName }}-appointments-certificate
+  issuerRef:
+    name: {{ .Values.ingress.certIssuerName }}
+  dnsNames:
+  - appointments.{{ $domainName }}
+{{- end }}

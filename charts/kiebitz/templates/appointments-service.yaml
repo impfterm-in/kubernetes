@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "kiebitz.fullname" . }}
+  name: {{ include "kiebitz.fullname" . }}-appointments
   labels:
     {{- include "kiebitz.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.appointmentsService.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - port: {{ .Values.appointmentsService.port }}
       protocol: TCP
-      name: http
   selector:
     {{- include "kiebitz.selectorLabels" . | nindent 4 }}
