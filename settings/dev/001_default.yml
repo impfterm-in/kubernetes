@@ -17,6 +17,7 @@ metrics:
   bind_address: "localhost:9091"
 storage:
   settings_ttl_days: 60
+  keys: [ ]
   rpc:
     bind_address: 0.0.0.0:11111
     cors:
